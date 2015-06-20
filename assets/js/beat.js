@@ -28,19 +28,19 @@ var talks_poems_links = ["https://www.youtube.com/embed/LkK2fwZfVjA",
 "https://www.youtube.com/embed/V-bjOJzB7LY", 
 "https://www.youtube.com/embed/LBSUTPftN9E"];
 
-var tags = [
-    'love',
-    'friendship',
-    'joy',
-    'surprise',
-    'trust',
-    'envy',
-    'fear',
-    'anger',
-    'sadness',
-    'pity',
-    'disgust',
-    ];
+var tags = {
+    'love': '#C00000',
+    'friendship': '#FF6600',
+    'joy': '#FED100',
+    'surprise': '#FF33CC',
+    'trust': '#330066',
+    'envy': '#6AE673',
+    'fear': '#8050A6',
+    'anger': '#FF0000',
+    'sadness': '#2459BF',
+    'pity': '#D4D49E',
+    'disgust': '#5BA734',
+    };
 
 console.log(songs_yt_links);
 console.log(talks_poems_links);
@@ -77,16 +77,21 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
-generateTag = function(tagName) {
-    var htmlString = "<input class='btn tag deselected' id='" + tagName + "' type='button' onclick='toggleTag(this.id)' value='" + tagName + "'/>"
+generateTag = function(tagName, color) {
+    var htmlString = "<input class='btn tag deselected' style='background-color:" + color + "' id='" + tagName + "' type='button' onclick='toggleTag(this.id)' value='" + tagName + "'/>"
 
     $('.tags').append(htmlString);
 };
 
 generateTags = function() {
-    for (tag of tags) {
-        generateTag(tag);
-    }
+    $.each(tags, function(tagName, color) {
+        generateTag(tagName, color);
+        console.log(color);
+    });
+
+    // for (tag of tags) {
+    //     generateTag(tag);
+    // }
 };
 
 generateTags();
