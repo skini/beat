@@ -29,3 +29,9 @@ songs_yt_links = ["https: //www.youtube.com/watch?v=jSXiNdTbTA4",
 		generateSong = function() {
 
 		}
+
+        toggleTag = function(id) {
+            var $tag = $('#' + id);
+            $tag.toggleClass('selected deselected');
+            console.log('hello?');
+        }

@@ -35,7 +35,12 @@
         <div class="home-overlay"></div>
 		<div class="intro">
             <h1>Beat</h1>
-            <h2>Instrumental and Poetry<br>Slam Mashup Generator<h2>
+            <h2>Instrumental and Poetry Slam<br>Mashup Generator<h2>
+
+            <div class="tags">
+            <input class="btn tag deselected" id="happy" type="button" onclick="toggleTag(this.id)" value="mood"/>
+            </div>
+
 			<input class="btn" id="generate-btn" type="button" onclick="generateSong()" value="Generate!"/>
 		</div>
 
@@ -135,7 +140,8 @@
     <script src="assets/js/jquery.easypiechart.js"></script>
     <script src="assets/js/waypoints.min.js"></script>
     <script src="assets/js/jquery.cbpQTRotator.js"></script>
-	<script src="assets/js/custom.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/beat.js"></script>
 
 </body>
 </html>
