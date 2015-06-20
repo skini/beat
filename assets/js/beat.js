@@ -12,7 +12,9 @@ var songs_yt_links = ["https://www.youtube.com/embed/jSXiNdTbTA4",
 		"https://www.youtube.com/embed/wZcNacuLSGQ",
 		"https://www.youtube.com/embed/2eq6l9P8Wf0",
 		"https://www.youtube.com/embed/nfQJRtf0kr4", 
-		"https://www.youtube.com/embed/EZfDUdGWRhQ"];
+		"https://www.youtube.com/embed/EZfDUdGWRhQ",
+		"https://www.youtube.com/embed/S-Xm7s9eGxU",
+		"https://www.youtube.com/embed/YP_fUo9a_mg"];
 
 
 var talks_poems_links = ["https://www.youtube.com/embed/LkK2fwZfVjA", 
@@ -31,8 +33,8 @@ var talks_poems_links = ["https://www.youtube.com/embed/LkK2fwZfVjA",
 
 		function generateSong(){
 
-			var index = getRandomInt(0,10);
-			var index2 = getRandomInt(0,10);
+			var index = getRandomInt(0,songs_yt_links.length);
+			var index2 = getRandomInt(0,talks_poems_links.length);
 			var songURL = songs_yt_links[index];
 			var poemURL = talks_poems_links[index2];
 			var songiFrame = $('.song_iframe');
