@@ -47,37 +47,72 @@ console.log(songs_yt_links);
 console.log(talks_poems_links);
 
 // FUNCTIONS
-function generateSong(){
-    var index = getRandomInt(0,songs_yt_links.length);
-    var index2 = getRandomInt(0,talks_poems_links.length);
-    var songURL = songs_yt_links[index];
-    var poemURL = talks_poems_links[index2];
+
+function onGenerateClick() {
+    var $selectedTags = $('.selected');
+    var songURL;
+    var poemURL;
+
+    if ($selectedTags.length) { // if user selected any tags, add to query
+        var query = 'poetry slam';
+
+        $selectedTags.each(function() {
+            console.log('tag: ');
+            console.log($(this).attr('id'));
+            var tagName = $(this).attr('id');
+            query = query.concat(' ' + tagName);
+        });
+
+        search(query);
+    } else { // otherwise, pull from our dataset
+        var poemIndex = getRandomInt(0,talks_poems_links.length);
+
+        poemURL = talks_poems_links[poemIndex];
+        generateSong(poemURL);
+    }
+}
+
+function generateSong(videoUrl) {
+    var songIndex = getRandomInt(0,songs_yt_links.length);
+    var songURL = songs_yt_links[songIndex];
+    var poemURL = videoUrl;
     var songiFrame = $('.song_iframe');
     var poemiFrame = $('.poem_iframe');
     $(".song_iframe").attr('src', songURL+'?autoplay=1');
     $(".poem_iframe").attr('src', poemURL+'?autoplay=1');
-}
+
+};
+
+function search(query) {
+    var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&q="+query+"&maxResults=10&key=AIzaSyBkR-hDZZn-YnmV3RBWwXJ6zLaA2yhNAqU";
+    var videoUrl;
+    $.getJSON(url, function(json) {
+        var index = getRandomInt(0,5);  // pick from top 5 results
+        var videoId = json["items"][index]["id"]["videoId"];
+        videoUrl = "https://www.youtube.com/embed/" + videoId;
+        generateSong(videoUrl);
+    });
+};
 
 toggleTag = function(id) {
     var $tag = $('#' + id);
     $tag.toggleClass('selected deselected');
-    console.log('hello?');
-}
+};
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
-}
+};
 
 generateTag = function(tagName) {
     var htmlString = "<input class='btn tag deselected' id='" + tagName + "' type='button' onclick='toggleTag(this.id)' value='" + tagName + "'/>"
 
     $('.tags').append(htmlString);
-}
+};
 
 generateTags = function() {
     for (tag of tags) {
         generateTag(tag);
     }
-}
+};
 
 generateTags();
