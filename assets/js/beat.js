@@ -44,9 +44,6 @@ var tags = {
     'disgust': '#5BA734',
     };
 
-console.log(songs_yt_links);
-console.log(talks_poems_links);
-
 // FUNCTIONS
 
 function generateSong() {

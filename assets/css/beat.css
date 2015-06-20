@@ -2,6 +2,10 @@
     margin-top: 30px
 }
 
+.navbar-brand {
+    font-family: "Arial", sans-serif !important;
+}
+
 h1 {
     font-size: 72px;
     letter-spacing: 12px;
