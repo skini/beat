@@ -4,8 +4,7 @@
 //Shloka Kini <srk@shlokakini.com>
 
 // DATA
-var songs_yt_links = ["https://www.youtube.com/embed/jSXiNdTbTA4",
-        "https://www.youtube.com/embed/heIGbOA6Ykw",
+var songs_yt_links = ["https://www.youtube.com/embed/heIGbOA6Ykw",
 		"https://www.youtube.com/embed/uYsq7fbRbvk",
 		"https://www.youtube.com/embed/2uVHNib1uzE",
 		"https://www.youtube.com/embed/KNmpIA_bLcE",
@@ -16,7 +15,8 @@ var songs_yt_links = ["https://www.youtube.com/embed/jSXiNdTbTA4",
 		"https://www.youtube.com/embed/nfQJRtf0kr4", 
 		"https://www.youtube.com/embed/EZfDUdGWRhQ",
 		"https://www.youtube.com/embed/eW33wN2EufY",
-		"https://www.youtube.com/embed/YP_fUo9a_mg"];
+		"https://www.youtube.com/embed/YP_fUo9a_mg",
+		"https://www.youtube.com/embed/2BtUVKYxfI8"];
 
 var talks_poems_links = ["https://www.youtube.com/embed/LkK2fwZfVjA", 
 "https://www.youtube.com/embed/cWPx9UyEdYw", 
@@ -29,22 +29,19 @@ var talks_poems_links = ["https://www.youtube.com/embed/LkK2fwZfVjA",
 "https://www.youtube.com/embed/V-bjOJzB7LY", 
 "https://www.youtube.com/embed/LBSUTPftN9E"];
 
-var tags = [
-    'love',
-    'friendship',
-    'joy',
-    'surprise',
-    'trust',
-    'envy',
-    'fear',
-    'anger',
-    'sadness',
-    'pity',
-    'disgust',
-    ];
-
-console.log(songs_yt_links);
-console.log(talks_poems_links);
+var tags = {
+    'love': '#C00000',
+    'friendship': '#FF6600',
+    'joy': '#FED100',
+    'surprise': '#FF33CC',
+    'trust': '#330066',
+    'envy': '#6AE673',
+    'fear': '#8050A6',
+    'anger': '#FF0000',
+    'sadness': '#2459BF',
+    'pity': '#D4D49E',
+    'disgust': '#5BA734',
+    };
 
 // FUNCTIONS
 
@@ -103,16 +100,21 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
-generateTag = function(tagName) {
-    var htmlString = "<input class='btn tag deselected' id='" + tagName + "' type='button' onclick='toggleTag(this.id)' value='" + tagName + "'/>"
+generateTag = function(tagName, color) {
+    var htmlString = "<input class='btn tag deselected' style='background-color:" + color + "' id='" + tagName + "' type='button' onclick='toggleTag(this.id)' value='" + tagName + "'/>"
 
     $('.tags').append(htmlString);
 };
 
 generateTags = function() {
-    for (tag of tags) {
-        generateTag(tag);
-    }
+    $.each(tags, function(tagName, color) {
+        generateTag(tagName, color);
+        console.log(color);
+    });
+
+    // for (tag of tags) {
+    //     generateTag(tag);
+    // }
 };
 
 generateTags();
