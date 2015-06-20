@@ -43,6 +43,11 @@ var talks_poems_links = ["https://www.youtube.com/embed/LkK2fwZfVjA",
 			$(".poem_iframe").attr('src', poemURL+'?autoplay=1');
 		}
 
+        toggleTag = function(id) {
+            var $tag = $('#' + id);
+            $tag.toggleClass('selected deselected');
+            console.log('hello?');
+        }
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;

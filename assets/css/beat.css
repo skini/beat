@@ -1,4 +1,24 @@
 #generate-btn {
-    margin-top: 100px
+    margin-top: 30px
 }
 
+h1 {
+    font-size: 72px;
+    letter-spacing: 12px;
+}
+
+h2 {
+    margin-top: 25px
+}
+
+.btn.tag {
+    font-size: 15px
+}
+
+.deselected {
+    color: #fff !important;
+}
+
+.selected {
+    color: #000;
+}
