@@ -5,6 +5,7 @@
 
 // DATA
 var songs_yt_links = ["https://www.youtube.com/embed/jSXiNdTbTA4",
+        "https://www.youtube.com/embed/heIGbOA6Ykw",
 		"https://www.youtube.com/embed/uYsq7fbRbvk",
 		"https://www.youtube.com/embed/2uVHNib1uzE",
 		"https://www.youtube.com/embed/KNmpIA_bLcE",
@@ -12,10 +13,10 @@ var songs_yt_links = ["https://www.youtube.com/embed/jSXiNdTbTA4",
 		"https://www.youtube.com/embed/sfTa_NLiXRU",
 		"https://www.youtube.com/embed/wZcNacuLSGQ",
 		"https://www.youtube.com/embed/2eq6l9P8Wf0",
-		"https://www.youtube.com/embed/nfQJRtf0kr4",
-        "https://www.youtube.com/embed/2BtUVKYxfI8",
-		"https://www.youtube.com/embed/EZfDUdGWRhQ"];
-
+		"https://www.youtube.com/embed/nfQJRtf0kr4", 
+		"https://www.youtube.com/embed/EZfDUdGWRhQ",
+		"https://www.youtube.com/embed/eW33wN2EufY",
+		"https://www.youtube.com/embed/YP_fUo9a_mg"];
 
 var talks_poems_links = ["https://www.youtube.com/embed/LkK2fwZfVjA", 
 "https://www.youtube.com/embed/cWPx9UyEdYw", 
@@ -47,7 +48,6 @@ console.log(talks_poems_links);
 
 // FUNCTIONS
 function generateSong(){
-
     var index = getRandomInt(0,songs_yt_links.length);
     var index2 = getRandomInt(0,talks_poems_links.length);
     var songURL = songs_yt_links[index];
