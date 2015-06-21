@@ -33,3 +33,8 @@ h2 {
 .selected {
     color: #000;
 }
+
+.row {
+    margin-left: auto;
+    margin-right: auto
+}
